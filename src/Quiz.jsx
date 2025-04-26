@@ -26,11 +26,45 @@ const Quiz = () => {
         setIsMinimized(!isMinimized);
     };
 
+    const saveAsJsonFile = () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(quizData, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "quizData.json");
+        document.body.appendChild(downloadAnchorNode); // required for Firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    };
+
+    const loadFromJsonFile = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const loadedData = JSON.parse(e.target.result);
+                    setQuizData(loadedData);
+                    localStorage.setItem('quizData', JSON.stringify(loadedData));
+                } catch (error) {
+                    alert('Invalid JSON file');
+                }
+            };
+            reader.readAsText(file);
+        }
+    };
+
     return (
         <div style={{ border: '1px solid #ccc', padding: '10px', width: '300px' }}>
             <button onClick={toggleMinimize}>
                 {isMinimized ? 'Expand' : 'Minimize'}
             </button>
+            <button onClick={saveAsJsonFile}>Save as JSON</button>
+            <input
+                type="file"
+                accept="application/json"
+                onChange={loadFromJsonFile}
+                style={{ marginTop: '10px' }}
+            />
             {!isMinimized && (
                 <>
                     <h3>Create a Quiz</h3>
@@ -56,6 +90,7 @@ const Quiz = () => {
                     </div>
                     <button onClick={handleSave}>Save</button>
                     <button onClick={handleClear}>Clear All</button>
+
                     <h4>Saved Questions:</h4>
                     <ul>
                         {quizData.map((item, index) => (
