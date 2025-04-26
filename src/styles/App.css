@@ -1,0 +1,129 @@
+/* General styles for the app */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #444;
+    text-align: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"], input[type="number"], input[type="file"] {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Styles for the Quiz component */
+.quiz-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container h3 {
+    margin-bottom: 15px;
+}
+
+.quiz-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-container li {
+    margin-bottom: 10px;
+}
+
+/* Styles for the Scores component */
+.scoreboard {
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced table styles */
+.scoreboard table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures no double borders */
+    margin-top: 20px;
+    background-color: #ffffff; /* White background for the table */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.scoreboard th, .scoreboard td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.scoreboard th {
+    background-color: #3f51b5; /* Deep blue header */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.scoreboard td {
+    background-color: #f3f4f6; /* Light gray cells */
+    color: #333;
+}
+
+.scoreboard tr:nth-child(even) td {
+    background-color: #e7e9eb; /* Slightly darker gray for even rows */
+}
+
+.scoreboard tr:hover td {
+    background-color: #d1d9ff; /* Light blue highlight on hover */
+}
+
+/* Center and enlarge text in table inputs */
+.scoreboard input[type="text"] {
+    text-align: center;
+    font-size: 50px;
+    padding: 10px;
+}
+
+/* Styles for the Confetti button */
+.confetti-container {
+    text-align: center;
+    margin: 20px;
+}
+
+/* General container for components */
+.app-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}

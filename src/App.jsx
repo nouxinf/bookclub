@@ -1,8 +1,12 @@
 import { useState } from 'react'
+
 import Dice from './Dice';
 import Quiz from "./Quiz";
 import Scores from "./Scores";
 import Confetti from "./Confetti.jsx";
+
+import "./styles/App.css"
+
 function App() {
   return (
     <>
@@ -10,7 +14,7 @@ function App() {
         <Confetti />
         <Dice />
         <Quiz />
-        <Scores />
+        <Scores className="scoreboard"/>
       </div>
     </>
   )

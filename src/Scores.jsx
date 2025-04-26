@@ -4,7 +4,6 @@ const Scores = () => {
     const [columns, setColumns] = useState([]);
     const [newColumnName, setNewColumnName] = useState('');
     const [rows, setRows] = useState([{}]);
-
     const addColumn = () => {
         if (newColumnName.trim() !== '') {
             setColumns([...columns, newColumnName]);
@@ -31,6 +30,16 @@ const Scores = () => {
             return rows.reduce((sum, row) => sum + (parseFloat(row[column]) || 0), 0);
         });
         return sums;
+    };
+
+    const getSortedPlayers = () => {
+        return rows
+            .filter((row) => row['Name']) // Ensure only rows with a 'Name' are included
+            .map((row) => {
+                const totalScore = parseFloat(row['Total']) || 0; // Use the 'Total' column for scores
+                return { name: row['Name'], totalScore };
+            })
+            .sort((a, b) => b.totalScore - a.totalScore);
     };
 
     return (
@@ -72,7 +81,7 @@ const Scores = () => {
                 <tfoot>
                     <tr>
                         {columns.map((column, columnIndex) => (
-                            <td key={columnIndex} style={{ fontWeight: 'bold' }}>
+                            <td key={columnIndex} style={{ fontWeight: 'bold', fontSize: 50 }}>
                                 {calculateColumnSums()[columnIndex]}
                             </td>
                         ))}
