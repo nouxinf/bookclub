@@ -21,10 +21,12 @@ button {
     cursor: pointer;
     font-size: 16px;
     margin: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: scale(1.05); /* Slightly enlarge button on hover */
 }
 
 input[type="text"], input[type="number"], input[type="file"] {
@@ -104,8 +106,13 @@ input[type="text"], input[type="number"], input[type="file"] {
     background-color: #e7e9eb; /* Slightly darker gray for even rows */
 }
 
+.scoreboard tr {
+    transition: background-color 0.3s ease;
+}
+
 .scoreboard tr:hover td {
     background-color: #d1d9ff; /* Light blue highlight on hover */
+    transform: scale(1.02); /* Slightly enlarge row on hover */
 }
 
 /* Center and enlarge text in table inputs */
@@ -126,4 +133,18 @@ input[type="text"], input[type="number"], input[type="file"] {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.quiz-container, .scoreboard {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
