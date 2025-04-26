@@ -11,7 +11,7 @@ const ConfettiEffect = () => {
 
     return (
         <div>
-            <button onClick={handleButtonClick}>Celebrate!</button>
+            <button onClick={handleButtonClick}><i className="fa-solid fa-cake-candles"></i></button>
             {showConfetti && <Confetti width={window.innerWidth} height={window.innerHeight} numberOfPieces={5000} />}
         </div>
     );
