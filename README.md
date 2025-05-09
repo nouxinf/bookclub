@@ -4,7 +4,7 @@ This is a react app to help manage your book club!
 
 ## Features
 
-- Quiz maker
+- Quiz maker 
 - Scoreboard
 - Dice roller
 - Confetti!
