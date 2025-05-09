@@ -2,6 +2,7 @@
   "name": "bookclub",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://nouxinf.github.io/bookclub",
   "type": "module",
   "scripts": {
     "dev": "vite",
