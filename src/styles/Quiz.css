@@ -1,0 +1,26 @@
+.quiz-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.del-btn {
+    white-space: nowrap;
+    margin-top: -2px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    width: 2rem;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+}
+.del-btn:hover {
+    background-color: #ff6666;
+}
+.del-btn i {
+    font-size: 1.2rem;
+    height: auto;
+    width: auto;
+    margin-top: -3px;
+}
