@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import "./styles/Quiz.css"
 const Quiz = () => {
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
@@ -54,7 +54,7 @@ const Quiz = () => {
     };
 
     return (
-        <div style={{ border: '1px solid #ccc', padding: '10px', width: '300px' }}>
+        <div style={{ border: '1px solid #ccc', width: '300px' }}>
             <button onClick={toggleMinimize}>
                 {isMinimized ? 'Expand' : 'Minimize'}
             </button>
@@ -92,11 +92,24 @@ const Quiz = () => {
                     <button onClick={handleClear}>Clear All</button>
 
                     <h4>Saved Questions:</h4>
+                    <p style={{ margin: '0 0 8px 0', fontWeight: 'bold' }}>Total: {quizData.length}</p>
                     <ul>
                         {quizData.map((item, index) => (
-                            <li key={index}>
-                                <strong>Q:</strong> {item.question} <br />
+                            <li key={index} className="quiz-item">
+                                <div className="qa-text">
+                                <strong>Q:</strong> {item.question} <br/>
                                 <strong>A:</strong> {item.answer}
+                                </div>
+                                <button
+                                    className="del-btn"
+                                    onClick={() => {
+                                        const newQuizData = quizData.filter((_, i) => i !== index);
+                                        setQuizData(newQuizData);
+                                        localStorage.setItem('quizData', JSON.stringify(newQuizData));
+                                    }}
+                                >
+                                    <i className="fa-solid fa-trash"></i>
+                                </button>
                             </li>
                         ))}
                     </ul>
