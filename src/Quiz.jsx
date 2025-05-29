@@ -89,7 +89,6 @@ const Quiz = () => {
                         </label>
                     </div>
                     <button onClick={handleSave}>Save</button>
-                    <button onClick={handleClear}>Clear All</button>
 
                     <h4>Saved Questions:</h4>
                     <p style={{ margin: '0 0 8px 0', fontWeight: 'bold' }}>Total: {quizData.length}</p>
