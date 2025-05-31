@@ -54,7 +54,7 @@ const Quiz = () => {
     };
 
     return (
-        <div style={{ border: '1px solid #ccc', width: '300px' }}>
+        <div style={{ border: '1px solid #ccc', width: '300px', borderRadius: "8px" }}>
             <button onClick={toggleMinimize}>
                 {isMinimized ? 'Expand' : 'Minimize'}
             </button>
